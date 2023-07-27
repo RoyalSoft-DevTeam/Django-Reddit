@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+                <div class="well profile">
+                    <div class="col-sm-12">
+                        <div class="col-xs-12 col-sm-8">
+
+                            <p><strong>{{ profile.author_name}}</strong></p>
+                            <p>Title : {{ profile.title}}</p>
+                            <p>Score : {{ profile.score}}</p>
+
+                            <p>
+                                {% if profile.text %}
+                                {{ profile.text }}
+                                {% else %}
+                                <p>User has not entered anything here</p>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 text-center">
+                            <br>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 divider text-center">
+                        <div class="col-xs-12 col-sm-4 emphasis">
+
+                            <p><strong>Time : {{ profile.timestamp }} </strong></p>
+
+                            <p>Comment karma</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 emphasis">
+                            <p><strong>Comment Count : {{ profile.comment_count }}</strong></p>
+
+                            <p>Link karma</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 emphasis">
+                            <br>
+                                <a class="btn btn-primary" href="/detail/{{ profile.id }}/edit">
+                                    <span class="fa fa-gear"></span> Edit
+                                </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-success" href="/">
+                <span class="fa fa-envelope-o"></span> Back
+            </a>
+        </div>
+    </div>
+
+
+{% endblock %}

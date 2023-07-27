@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div>
+      <form class="form-horizontal"
+            action="/detail/{{ submission.id }}/change/"
+            method="post">
+        {% csrf_token %}
+            <fieldset>
+              {% if error != "" %}
+                alert(error)
+              {% endif %}
+            {% if success != "" %}
+                <div class="alert alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ message }} 
+                </div>
+              {% endif %}
+              <div class="form-group comment-group">
+
+                  <div class="col-lg-10">
+                      Title : <input name="title" class="form-control" rows="3" id="subtitle" value="{{ submission.title }}">
+                      <span id="postResponse" class="text-success" style="display: none"></span>
+                  </div>
+
+                <div class="col-lg-10 pt-4">
+                      URL : <input name="url" class="form-control" id="suburl" value="{{ submission.url }}">
+                      <span id="postResponse" class="text-success" style="display: none"></span>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="col-lg-10 col-lg-offset-2">
+                      <button type="submit" class="btn btn-primary">Change</button>
+                  </div>
+              </div>
+
+            </fieldset>
+        </form>
+      </div>
+
+{% endblock %}
+
+
+
+
